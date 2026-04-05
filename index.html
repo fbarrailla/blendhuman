@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -569,6 +570,193 @@
       .detail-attrs { flex-wrap: wrap; gap: 1.5rem; }
     }
 
+    /* ─── CONTACT PAGE ────────────────────────────── */
+    .contact-wrap {
+      min-height: 100svh;
+      padding: 10rem 3rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 6rem;
+      align-items: start;
+    }
+
+    .contact-left {
+      position: sticky;
+      top: 8rem;
+    }
+
+    .contact-heading {
+      font-family: var(--ff-d);
+      font-size: clamp(3.5rem, 8vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-heading .ch-outline {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--text);
+    }
+
+    .contact-sub {
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-sub a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-sub a:hover { border-color: var(--text); }
+
+    /* ─ FORM ──────────────────────────────────────── */
+    #contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 2rem;
+    }
+
+    .f-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .f-field.full { grid-column: span 2; }
+
+    .f-label {
+      font-size: 0.56rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .f-input,
+    .f-select,
+    .f-textarea {
+      font-family: var(--ff-u);
+      font-size: 0.82rem;
+      color: var(--text);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      padding: 0.65rem 0;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.3s ease;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .f-input:focus,
+    .f-select:focus,
+    .f-textarea:focus {
+      border-color: var(--text);
+    }
+
+    .f-input::placeholder,
+    .f-textarea::placeholder {
+      color: oklch(46% 0.009 58 / 0.5);
+    }
+
+    .f-select {
+      cursor: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236B6358'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      padding-right: 1.5rem;
+    }
+
+    .f-select option {
+      background: oklch(14% 0.010 52);
+      color: var(--text);
+    }
+
+    .f-textarea {
+      resize: none;
+      height: 120px;
+      line-height: 1.7;
+    }
+
+    /* submit */
+    .f-submit {
+      grid-column: span 2;
+      margin-top: 1rem;
+    }
+
+    .btn-send {
+      font-family: var(--ff-d);
+      font-size: 1.5rem;
+      letter-spacing: 0.1em;
+      color: var(--bg);
+      background: var(--text);
+      border: 2px solid var(--text);
+      width: 100%;
+      padding: 1.1rem 2rem;
+      cursor: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-send:hover {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-send:disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .btn-send-arrow {
+      transition: transform 0.3s var(--ease);
+      font-size: 1.2rem;
+    }
+
+    .btn-send:hover .btn-send-arrow { transform: translateX(6px); }
+
+    /* states */
+    .form-status {
+      grid-column: span 2;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.8rem 0;
+      display: none;
+    }
+
+    .form-status.success { color: oklch(70% 0.15 145); display: block; }
+    .form-status.error   { color: oklch(65% 0.18 25);  display: block; }
+
+    @media (max-width: 960px) {
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .contact-left { position: static; }
+    }
+
+    @media (max-width: 600px) {
+      #contact-form { grid-template-columns: 1fr; }
+      .f-field.full,
+      .f-submit,
+      .form-status { grid-column: span 1; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -588,7 +776,7 @@
     <button class="nav-logo" data-hover onclick="goHome()">BH</button>
     <ul class="nav-links">
       <li><button data-hover onclick="goHome()">Work</button></li>
-      <li><button data-hover onclick="goHome()">Contact</button></li>
+      <li><button data-hover onclick="goContact()">Contact</button></li>
     </ul>
   </nav>
 
@@ -699,7 +887,72 @@
 
   </main>
 
+  <!-- ═══════════════════════════════════════════════
+       CONTACT PAGE
+  ════════════════════════════════════════════════ -->
+  <main class="page" id="page-contact">
+    <div class="contact-wrap">
+
+      <div class="contact-left">
+        <h2 class="contact-heading">
+          Let's<br>
+          Work<br>
+          <span class="ch-outline">Together</span>
+        </h2>
+        <p class="contact-sub">
+          Available for freelance projects.<br><br>
+          <a href="mailto:adryx@blendhuman.com" data-hover>adryx@blendhuman.com</a>
+        </p>
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="f-field">
+          <label class="f-label" for="f-name">Name</label>
+          <input class="f-input" id="f-name" name="from_name" type="text" placeholder="Your name" required>
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="f-email">Email</label>
+          <input class="f-input" id="f-email" name="from_email" type="email" placeholder="your@email.com" required>
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="f-phone">Phone</label>
+          <input class="f-input" id="f-phone" name="phone" type="tel" placeholder="+1 000 000 0000">
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="f-service">Service</label>
+          <select class="f-select" id="f-service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Web Design">Web Design</option>
+            <option value="3D Creation">3D Creation</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="f-field full">
+          <label class="f-label" for="f-message">Message</label>
+          <textarea class="f-textarea" id="f-message" name="message" placeholder="Tell me about your project…" required></textarea>
+        </div>
+
+        <div class="f-submit">
+          <button class="btn-send" type="submit" data-hover>
+            <span>Send Message</span>
+            <span class="btn-send-arrow">→</span>
+          </button>
+        </div>
+
+        <p class="form-status" id="form-status"></p>
+      </form>
+
+    </div>
+  </main>
+
   <script>
+    /* ─── EMAILJS ──────────────────────────────────── */
+    emailjs.init('-BGhKDSFxI8D8E1hT');
+
     /* ─── DATA ─────────────────────────────────────── */
     const PROJECTS = [
       {
@@ -775,11 +1028,21 @@
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
+    function setNav(active) {
+      document.getElementById('nav-home').style.display   = active === 'home'   ? '' : 'none';
+      document.getElementById('nav-detail').style.display = active === 'detail' ? '' : 'none';
+    }
+
     function goHome() {
-      document.getElementById('nav-home').style.display = '';
-      document.getElementById('nav-detail').style.display = 'none';
+      setNav('home');
       showPage('page-home');
       history.pushState(null, '', '#');
+    }
+
+    function goContact() {
+      setNav('home');
+      showPage('page-contact');
+      history.pushState(null, '', '#contact');
     }
 
     /* ─── OPEN PROJECT ─────────────────────────────── */
@@ -824,8 +1087,7 @@
       document.getElementById('btn-next').disabled = idx === PROJECTS.length - 1;
 
       // swap navs
-      document.getElementById('nav-home').style.display   = 'none';
-      document.getElementById('nav-detail').style.display = '';
+      setNav('detail');
 
       showPage('page-detail');
       history.pushState(null, '', `#${p.id}`);
@@ -874,9 +1136,49 @@
       dot.style.opacity = ring.style.opacity = '1';
     });
 
+    /* ─── CONTACT FORM ─────────────────────────────── */
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn    = this.querySelector('.btn-send');
+      const status = document.getElementById('form-status');
+
+      // basic validation
+      const name    = this.from_name.value.trim();
+      const email   = this.from_email.value.trim();
+      const service = this.service.value;
+      const message = this.message.value.trim();
+
+      if (!name || !email || !service || !message) {
+        status.className = 'form-status error';
+        status.textContent = '— Please fill in all required fields.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.querySelector('span').textContent = 'Sending…';
+      status.className = 'form-status';
+      status.style.display = 'none';
+
+      emailjs.sendForm('service_nop1bn9', 'template_3yov3hs', this)
+        .then(() => {
+          status.className = 'form-status success';
+          status.textContent = '— Message sent. I\'ll get back to you soon.';
+          this.reset();
+          btn.disabled = false;
+          btn.querySelector('span').textContent = 'Send Message';
+        })
+        .catch(() => {
+          status.className = 'form-status error';
+          status.textContent = '— Something went wrong. Please try again.';
+          btn.disabled = false;
+          btn.querySelector('span').textContent = 'Send Message';
+        });
+    });
+
     /* ─── HASH ROUTING ─────────────────────────────── */
     function route() {
       const h = location.hash.replace('#', '').trim();
+      if (h === 'contact') { goContact(); return; }
       if (h) {
         const i = PROJECTS.findIndex(p => p.id === h);
         if (i !== -1) { openProject(i); return; }
