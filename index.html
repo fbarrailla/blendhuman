@@ -6,7 +6,7 @@
   <title>Blend Human — Adryx Jatin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,8 +17,8 @@
       --muted:   oklch(46% 0.009 58);
       --accent:  oklch(63% 0.120 42);
       --line:    oklch(91% 0.010 78 / 0.07);
-      --ff-d: 'Cormorant', Georgia, serif;
-      --ff-u: 'Space Grotesk', system-ui, sans-serif;
+      --ff-d: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
+      --ff-u: 'Space Mono', 'Courier New', monospace;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -81,11 +81,10 @@
     #nav-detail { display: none; }
 
     .nav-logo {
-      font-family: var(--ff-u);
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
+      font-family: var(--ff-d);
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
       color: var(--text);
       background: none;
       border: none;
@@ -188,18 +187,19 @@
 
     .hero-title {
       font-family: var(--ff-d);
-      font-size: clamp(5.5rem, 14.5vw, 17rem);
-      font-weight: 300;
-      line-height: 0.86;
-      letter-spacing: -0.025em;
+      font-size: clamp(5.5rem, 15vw, 18rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
       color: var(--text);
       opacity: 0;
       animation: fade-up 0.9s var(--ease) 0.3s forwards;
     }
 
     .hero-title .line-2 {
-      font-style: italic;
       display: block;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--text);
     }
 
     .hero-foot {
@@ -220,9 +220,10 @@
     }
 
     .hero-role {
-      font-family: var(--ff-d);
-      font-style: italic;
-      font-size: 0.88rem;
+      font-family: var(--ff-u);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--muted);
       text-align: center;
     }
@@ -265,10 +266,10 @@
 
     .t-word {
       font-family: var(--ff-d);
-      font-style: italic;
-      font-size: 1.05rem;
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
       color: var(--muted);
-      padding: 0 2.5rem;
+      padding: 0 2rem;
     }
 
     .t-dot {
@@ -303,9 +304,9 @@
     }
 
     .section-note {
-      font-family: var(--ff-d);
-      font-style: italic;
-      font-size: 0.82rem;
+      font-family: var(--ff-u);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
       color: var(--muted);
     }
 
@@ -365,12 +366,16 @@
 
     .proj-name {
       font-family: var(--ff-d);
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       font-weight: 400;
-      transition: color 0.3s ease;
+      letter-spacing: 0.04em;
+      transition: color 0.3s ease, -webkit-text-stroke 0.3s ease;
     }
 
-    .proj-card:hover .proj-name { color: var(--accent); }
+    .proj-card:hover .proj-name {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--text);
+    }
 
     .proj-cat {
       font-size: 0.58rem;
@@ -397,8 +402,8 @@
 
     .foot-cta {
       font-family: var(--ff-d);
-      font-style: italic;
-      font-size: 0.96rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
       color: var(--accent);
     }
 
@@ -433,13 +438,17 @@
     #d-title {
       font-family: var(--ff-d);
       font-size: clamp(3.5rem, 9vw, 11rem);
-      font-weight: 300;
-      line-height: 0.88;
-      letter-spacing: -0.025em;
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: 0.04em;
       color: var(--text);
     }
 
-    #d-title em { font-style: italic; }
+    #d-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--text);
+    }
 
     .detail-attrs {
       display: flex;
@@ -464,8 +473,8 @@
 
     .attr-val {
       font-family: var(--ff-d);
-      font-style: italic;
-      font-size: 0.88rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
       color: var(--text);
     }
 
@@ -514,8 +523,8 @@
     #next-name {
       font-family: var(--ff-d);
       font-size: clamp(1.8rem, 5vw, 4.5rem);
-      font-weight: 300;
-      font-style: italic;
+      font-weight: 400;
+      letter-spacing: 0.04em;
     }
 
     .next-arrow {
