@@ -1558,6 +1558,59 @@
           <p>Done this way, 3D becomes a system, not a spectacle. Individual outputs vary in content but feel unmistakably connected — the visual equivalent of a consistent voice.</p>
           <p>The brands that will own the next decade of visual culture are the ones building these systems now, while the space is still sparse enough for a strong 3D identity to stand out. Dimension is the new whitespace — used deliberately, it creates room that flat design simply cannot.</p>
         `
+      },
+      {
+        id: 'motion-before-animation',
+        title: 'Motion Before',
+        titleOutline: 'Animation',
+        category: '3D Design / Motion',
+        date: 'April 2024',
+        readTime: '6',
+        excerpt: 'Most 3D artists animate last. The ones producing the sharpest motion work think about camera paths, physics, and time before the first polygon is placed.',
+        tags: ['Motion', '3D', 'Process'],
+        body: `
+          <p>Most 3D artists animate last. They build the scene, light it, render a still, and then — only once everything looks right — ask how it moves. The ones producing the sharpest motion work do the opposite. They think about camera paths, physics, and time before the first polygon is placed. The difference in output is not subtle.</p>
+
+          <span class="article-section-lbl">01 — The Problem with Animating Last</span>
+          <h3>When the Scene Was Built for Stillness</h3>
+          <p>A scene built for a still image is optimised for one viewpoint. The geometry on the far side of the hero object is rough, because the camera never sees it. The lighting is tuned for a fixed angle — move the camera thirty degrees and the composition falls apart. The materials look correct under one set of incident angles and strange under any other.</p>
+          <p>When you try to animate this scene, you feel the debt immediately. You push the camera along a path and catch a wireframe seam you never bothered to close. A dramatic dolly reveals a light that was parked just outside frame, now fully visible. The object that read as solid from the hero angle looks flat and unconvincing from the side because there was never a reason to build volume into that face.</p>
+          <p>These are not rendering problems. They are design problems that got deferred until the worst possible moment — when the deadline is close and the fixes are expensive.</p>
+
+          <div class="article-pull">
+            <p>Animation is not something you add to a scene. It is a constraint that should shape the scene from the first decision.</p>
+          </div>
+
+          <span class="article-section-lbl">02 — Designing the Path First</span>
+          <h3>Camera as Author</h3>
+          <p>Before modelling anything, block the camera move. Not a rough idea of it — the actual path, timed to the beat or cut point, with the start and end frames committed. This single step changes every subsequent decision.</p>
+          <p>If the camera orbits, you need full 360-degree geometry. If it pushes through the object, you need interior detail. If it rises vertically, the top face of every surface becomes load-bearing. The camera path is a specification, and the scene is the implementation. Getting the spec right before writing code is basic engineering — the same principle applies here.</p>
+          <p>Blocking the path first also forces you to make the motion meaningful before the scene has any visual interest to distract you. A camera move that feels purposeful on a grey clay render will feel purposeful on the final render. A camera move that was chosen because it looked cool with the materials is probably concealing a composition that doesn't hold without them.</p>
+
+          <hr class="article-divider">
+
+          <span class="article-section-lbl">03 — Physics as Design Language</span>
+          <h3>What Objects Remember</h3>
+          <p>Every physical object has a natural frequency — the way it would move if you let it. A heavy product settles with a slow ease and almost no overshoot. A light, hollow object oscillates before it rests. Liquid has its own logic: surface tension, viscosity, the way it climbs the inside of a container when the container decelerates.</p>
+          <p>Using physically-grounded motion is not about realism for its own sake. It is about legibility. When an animation violates the expected physics of an object, viewers cannot name the problem but they feel it — the motion reads as artificial in a way that undermines the credibility of the whole scene. When the physics are right, the object feels like it has mass, and mass is the foundation of the illusion that it exists.</p>
+          <p>The practical consequence is that you need to understand your object's implied physics before you rig it. A can of energy drink and a glass perfume bottle are both cylinders, but they move nothing alike. Their weight, their centre of gravity, the material they're made from — all of it should inform how you set up your simulation or hand-key your curves. Decide this at the start, when you are thinking about the object's identity, not at the end when you are chasing a deadline.</p>
+
+          <div class="article-pull">
+            <p>When the physics are right, the object feels like it has mass — and mass is the foundation of the illusion that it exists.</p>
+          </div>
+
+          <span class="article-section-lbl">04 — Light in Time</span>
+          <h3>Lighting for Frames, Not for Moments</h3>
+          <p>A lighting setup that reads beautifully in a single frame can become incoherent in motion. The most common failure mode is a hero light positioned to maximise drama at one specific rotation — the product is at 35 degrees, the key is at 45, and the specular sits perfectly on the label. Move the product ten degrees through an animation and the specular streaks across the surface in a way that looks like a glitch.</p>
+          <p>Lighting for motion means thinking about how every light source will behave across the entire arc of the camera and object movement. Where will the specular travel? At what point does the product move into shadow, and is that transition gradual or harsh? If you're using an HDRI, which part of the environment will be reflected as the object rotates, and does that reflection serve the brand or fight it?</p>
+          <p>The simplest fix is to scrub through your blocked animation with basic clay materials before committing to a lighting setup. You are not looking at aesthetics — you are looking at how light moves across surfaces over time. Problems visible at this stage are cheap to fix. The same problems discovered after the final render pass are not.</p>
+
+          <span class="article-section-lbl">05 — The Payoff</span>
+          <h3>Scenes That Move Like They Were Born Moving</h3>
+          <p>When you design for motion from the first decision, the result has a quality that is hard to fake retroactively: coherence. The geometry is complete in all directions the camera travels. The physics read as true. The lighting feels consistent because it was designed for a range of angles, not optimised for one. The animation looks inevitable, not assembled.</p>
+          <p>That coherence is what separates work that impresses for two seconds from work that holds up across multiple views. Clients feel it before they can articulate it. They describe the result as "more premium" or "more real," when what they are actually responding to is the absence of the usual tells that something was built for a screenshot and then forced to move.</p>
+          <p>The discipline is simple: before you place a single object, play the animation. Know the path, know the physics, know the light in time. Build the scene that deserves to move — not the scene that happens to.</p>
+        `
       }
     ];
 
