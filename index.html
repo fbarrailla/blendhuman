@@ -764,6 +764,301 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+    /* ─── BLOG LIST PAGE ─────────────────────────── */
+    .blog-wrap {
+      min-height: 100svh;
+      padding: 9rem 3rem 6rem;
+    }
+
+    .blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 4rem;
+    }
+
+    .blog-heading {
+      font-family: var(--ff-d);
+      font-size: clamp(3rem, 9vw, 10rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+    }
+
+    .blog-heading .bh-outline {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--text);
+    }
+
+    .blog-count {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      align-self: flex-end;
+      padding-bottom: 0.4rem;
+    }
+
+    .blog-list {
+      list-style: none;
+    }
+
+    .blog-item {
+      border-bottom: 1px solid var(--line);
+      cursor: none;
+    }
+
+    .blog-item-inner {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr auto;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 2.2rem 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .blog-item:hover .blog-item-inner { opacity: 0.6; }
+
+    .blog-idx {
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .blog-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .blog-title {
+      font-family: var(--ff-d);
+      font-size: clamp(1.4rem, 3.5vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      transition: color 0.3s ease, -webkit-text-stroke 0.3s ease;
+    }
+
+    .blog-item:hover .blog-title {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--text);
+    }
+
+    .blog-excerpt {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 55ch;
+    }
+
+    .blog-tags {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 0.3rem;
+    }
+
+    .blog-tag {
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid oklch(63% 0.120 42 / 0.35);
+      padding: 0.2rem 0.55rem;
+    }
+
+    .blog-arrow {
+      font-size: 1rem;
+      color: var(--muted);
+      transition: transform 0.3s var(--ease), color 0.3s ease;
+      align-self: center;
+    }
+
+    .blog-item:hover .blog-arrow {
+      transform: translateX(8px);
+      color: var(--text);
+    }
+
+    @media (max-width: 960px) {
+      .blog-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .blog-item-inner { grid-template-columns: 2.5rem 1fr; }
+      .blog-arrow { display: none; }
+    }
+
+    /* ─── ARTICLE PAGE ───────────────────────────── */
+    .article-wrap {
+      min-height: 100svh;
+    }
+
+    .article-header {
+      padding: 9rem 3rem 5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-cat-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .article-cat {
+      font-size: 0.56rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .article-date {
+      font-size: 0.56rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .article-title {
+      font-family: var(--ff-d);
+      font-size: clamp(3rem, 8vw, 9.5rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: 0.02em;
+      margin-bottom: 2.5rem;
+    }
+
+    .article-title .at-outline {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--text);
+    }
+
+    .article-byline {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .byline-author {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .byline-author strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .byline-read {
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .article-body {
+      padding: 5rem 3rem 7rem;
+      max-width: 780px;
+    }
+
+    .article-body h3 {
+      font-family: var(--ff-d);
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      margin: 3.5rem 0 1.2rem;
+      color: var(--text);
+    }
+
+    .article-body p {
+      font-size: 0.84rem;
+      line-height: 1.85;
+      color: oklch(91% 0.010 78 / 0.78);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .article-body p:first-of-type {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .article-pull {
+      border-left: 2px solid var(--accent);
+      padding: 1.5rem 0 1.5rem 2rem;
+      margin: 3rem 0;
+    }
+
+    .article-pull p {
+      font-family: var(--ff-d);
+      font-size: 1.6rem;
+      line-height: 1.1;
+      letter-spacing: 0.04em;
+      color: var(--text) !important;
+      margin: 0 !important;
+    }
+
+    .article-section-lbl {
+      font-size: 0.52rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .article-divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 3rem 0;
+    }
+
+    .article-footer {
+      padding: 2.75rem 3rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .art-foot-back {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: none;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .art-foot-back:hover { color: var(--text); }
+
+    .art-foot-copy {
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @media (max-width: 960px) {
+      .article-header,
+      .article-body,
+      .article-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .article-body { max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .article-byline { flex-wrap: wrap; gap: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -776,6 +1071,7 @@
     <button class="nav-logo" data-hover onclick="goHome()">BH</button>
     <ul class="nav-links">
       <li><button data-hover onclick="goHome()">Work</button></li>
+      <li><button data-hover onclick="goBlog()">Blog</button></li>
       <li><button data-hover onclick="goContact()">Contact</button></li>
     </ul>
   </nav>
@@ -885,6 +1181,46 @@
       <span class="next-arrow">→</span>
     </div>
 
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
+       BLOG LIST PAGE
+  ════════════════════════════════════════════════ -->
+  <main class="page" id="page-blog">
+    <div class="blog-wrap">
+      <div class="blog-header">
+        <h2 class="blog-heading">
+          Writing<br>
+          <span class="bh-outline">Studio</span>
+        </h2>
+        <span class="blog-count" id="blog-count">01 Article</span>
+      </div>
+      <ul class="blog-list" id="blog-list"></ul>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════
+       ARTICLE PAGE
+  ════════════════════════════════════════════════ -->
+  <main class="page" id="page-article">
+    <div class="article-wrap">
+      <header class="article-header">
+        <div class="article-cat-row">
+          <span class="article-cat" id="art-cat">—</span>
+          <span class="article-date" id="art-date">—</span>
+        </div>
+        <h2 class="article-title" id="art-title"></h2>
+        <div class="article-byline">
+          <span class="byline-author">By <strong>Adryx Jatin</strong></span>
+          <span class="byline-read" id="art-read">— min read</span>
+        </div>
+      </header>
+      <div class="article-body" id="art-body"></div>
+      <footer class="article-footer">
+        <button class="art-foot-back" data-hover onclick="goBlog()">← Back to Blog</button>
+        <span class="art-foot-copy">Blend Human — Adryx Jatin</span>
+      </footer>
+    </div>
   </main>
 
   <!-- ═══════════════════════════════════════════════
@@ -1175,10 +1511,113 @@
         });
     });
 
+    /* ─── ARTICLES DATA ────────────────────────────── */
+    const ARTICLES = [
+      {
+        id: 'depth-as-language',
+        title: 'Depth as Language',
+        titleOutline: 'How 3D Rewrites Brand Identity',
+        category: '3D Design / Branding',
+        date: 'April 2024',
+        readTime: '7',
+        excerpt: 'When a brand moves from flat to dimensional, something fundamental shifts — not just visually, but in the psychological contract it makes with its audience.',
+        tags: ['3D', 'Branding', 'Design'],
+        body: `
+          <p>When a brand moves from flat to dimensional, something fundamental shifts — not just visually, but in the psychological contract it makes with its audience. Depth communicates permanence. It suggests an object that exists in the same physical world as the viewer, subject to the same laws of light and gravity. That implicit claim is powerful, and more brands are learning to use it deliberately.</p>
+
+          <span class="article-section-lbl">01 — The Flat Era and Its Limits</span>
+          <h3>Why Flatness Became the Default</h3>
+          <p>The flat design revolution of the early 2010s was a corrective measure. Skeuomorphism had grown bloated — leather-stitched calendars, felt-lined game tables — and the pendulum swung hard toward minimalism. Flat was clean, fast to render on underpowered mobile hardware, and infinitely scalable. For a decade, it dominated.</p>
+          <p>But flatness carries a hidden cost. When everything exists on the same z-plane, visual hierarchy must be built entirely through typography, colour, and whitespace. There is no shadow to anchor an element, no specular highlight to indicate premium material. The designer's toolkit shrinks. More importantly, the brand feels weightless — and weightless things are easy to forget.</p>
+
+          <div class="article-pull">
+            <p>Depth communicates permanence. It suggests an object that exists in the same physical world as the viewer — subject to the same laws of light and gravity.</p>
+          </div>
+
+          <span class="article-section-lbl">02 — The Dimensional Turn</span>
+          <h3>Rendering Reality into Identity</h3>
+          <p>The current wave of 3D in branding is not a nostalgia trip back to skeuomorphism. It is something more considered. Modern 3D identity work treats dimension as a compositional variable — deployed with restraint, in service of meaning. A perfume bottle rendered in soft caustics. A product logo that casts a real shadow. A hero visual where light behaves physically, tracing the exact surface normals of a sculpted letterform.</p>
+          <p>This approach works because it exploits a deep perceptual shortcut: the human visual system is exquisitely tuned to interpret volumetric light. We evolved reading depth from shadows before we could read text. When a brand activates that circuitry, it bypasses rational processing and lands somewhere more visceral. The product feels real before the viewer has consciously registered it.</p>
+          <p>Software cycles have also made this accessible. What once required a dedicated CGI department now fits inside a single designer's toolkit — Blender, Cinema 4D, or Houdini paired with a path-tracer can produce photorealistic output on a laptop in hours. The barrier collapsed, and the aesthetics followed.</p>
+
+          <hr class="article-divider">
+
+          <span class="article-section-lbl">03 — Case Study</span>
+          <h3>What the Projects Taught Me</h3>
+          <p>Working on campaigns for brands like Starbucks, Red Bull, and Gucci — each occupying a different register of the cultural spectrum — made the principle concrete. For Starbucks, warmth and familiarity demanded soft subsurface scatter in the materials: light that seemed to penetrate the cup, liquid that glowed from within. For Red Bull, kinetic energy required sharp, almost aggressive specular highlights that implied speed and tension. For Gucci, the surface finish needed to feel cold, precise, slightly alien — luxury as distance.</p>
+          <p>The through-line was always the same: the renderer is not a technical step at the end of the pipeline. It is part of the brand language. The decision to use HDRI studio lighting versus dramatic single-source illumination is as much a brand decision as the typeface choice. Both communicate values at a sensory level before a single word is read.</p>
+
+          <div class="article-pull">
+            <p>The renderer is not a technical step. It is part of the brand language — as deliberate as typeface or colour.</p>
+          </div>
+
+          <span class="article-section-lbl">04 — Practical Framework</span>
+          <h3>Building a 3D Brand System</h3>
+          <p>Integrating 3D into a brand identity requires systemic thinking, not one-off executions. A few principles guide durable work. First, establish a lighting canon: define the key-to-fill ratio, colour temperature, and shadow softness that belong to the brand, and treat these as rigorously as you would a colour palette. Second, define material vocabulary: gloss level, roughness range, acceptable metallics, and any recurring procedural textures. Third, build modular geometry — base meshes that can be re-lit and re-composed for each campaign touchpoint without starting from scratch.</p>
+          <p>Done this way, 3D becomes a system, not a spectacle. Individual outputs vary in content but feel unmistakably connected — the visual equivalent of a consistent voice.</p>
+          <p>The brands that will own the next decade of visual culture are the ones building these systems now, while the space is still sparse enough for a strong 3D identity to stand out. Dimension is the new whitespace — used deliberately, it creates room that flat design simply cannot.</p>
+        `
+      }
+    ];
+
+    /* ─── BLOG FUNCTIONS ────────────────────────────── */
+    (function renderBlog() {
+      const list = document.getElementById('blog-list');
+      const count = document.getElementById('blog-count');
+      count.textContent = `${String(ARTICLES.length).padStart(2, '0')} Article${ARTICLES.length !== 1 ? 's' : ''}`;
+      list.innerHTML = ARTICLES.map((a, i) => `
+        <li class="blog-item" onclick="openArticle(${i})" data-hover>
+          <div class="blog-item-inner">
+            <span class="blog-idx">${String(i + 1).padStart(2, '0')}</span>
+            <div class="blog-meta">
+              <span class="blog-title">${a.title}</span>
+              <p class="blog-excerpt">${a.excerpt}</p>
+              <div class="blog-tags">${a.tags.map(t => `<span class="blog-tag">${t}</span>`).join('')}</div>
+            </div>
+            <span class="blog-arrow">→</span>
+          </div>
+        </li>
+      `).join('');
+
+      // wire hover cursor for dynamically rendered items
+      list.addEventListener('mouseover', e => {
+        if (e.target.closest('.blog-item')) ring.classList.add('hovered');
+      });
+      list.addEventListener('mouseout', e => {
+        if (e.target.closest('.blog-item')) ring.classList.remove('hovered');
+      });
+    })();
+
+    function goBlog() {
+      setNav('home');
+      showPage('page-blog');
+      history.pushState(null, '', '#blog');
+    }
+
+    function openArticle(idx) {
+      const a = ARTICLES[idx];
+      document.getElementById('art-cat').textContent   = a.category;
+      document.getElementById('art-date').textContent  = a.date;
+      document.getElementById('art-read').textContent  = `— ${a.readTime} min read`;
+      document.getElementById('art-title').innerHTML   =
+        `${a.title}<span class="at-outline">${a.titleOutline}</span>`;
+      document.getElementById('art-body').innerHTML = a.body;
+      setNav('home');
+      showPage('page-article');
+      history.pushState(null, '', `#blog/${a.id}`);
+    }
+
     /* ─── HASH ROUTING ─────────────────────────────── */
     function route() {
       const h = location.hash.replace('#', '').trim();
       if (h === 'contact') { goContact(); return; }
+      if (h === 'blog') { goBlog(); return; }
+      if (h.startsWith('blog/')) {
+        const slug = h.slice(5);
+        const i = ARTICLES.findIndex(a => a.id === slug);
+        if (i !== -1) { openArticle(i); return; }
+        goBlog(); return;
+      }
       if (h) {
         const i = PROJECTS.findIndex(p => p.id === h);
         if (i !== -1) { openProject(i); return; }
